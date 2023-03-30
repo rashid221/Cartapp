@@ -1,0 +1,18 @@
+#printmedia{
+    color:rgb(221, 0, 255);
+    font-size: 20px;
+}
+
+@page{
+size: A4;    
+}
+/* h2{
+    break-after: page;
+} */
+
+/* #table-parent{
+    break-after: page;
+} */
+.service-box{
+    break-inside: avoid;
+}
