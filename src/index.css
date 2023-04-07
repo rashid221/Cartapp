@@ -135,6 +135,16 @@ input[type=checkbox]{
 #table-footer{
     display: table-footer-group;
 }
+.props-child{
+ max-width: 800px;
+ height:200px;
+ background-color: #a28bfe;
+ color: #fff;
+ box-shadow: 5px 5px 16px 1px black;
+ padding: 10px;
+ margin: 10px auto;
+ border-radius: 5px;   
+}
 #row-group{
     display: table-row-group;
 }

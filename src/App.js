@@ -1,5 +1,7 @@
 import {react,useState} from 'react';
 import ReactDom from 'react-dom';
+import { useSelector,useDispatch } from 'react-redux';
+import { incNumber,decNumber,addCart } from './actions';
 // import './App.css';
 // import ComA from './ComA';
 // import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
@@ -10,13 +12,17 @@ import ReactDom from 'react-dom';
 // import Test from './Test';
 // import Other from './Other';
 // import Parent from './components/Parent';
-import Modals from './components/Modals';
-import Portal from './components/Portal';
-import PortalDemo from './components/PortalDemo';
-import User from './components/User';
-import ErrorBound from './components/ErrorBound';
+// import Modals from './components/Modals';
+// import Portal from './components/Portal';
+// import PortalDemo from './components/PortalDemo';
+// import User from './components/User';
+// import ErrorBound from './components/ErrorBound';
+// import Boxcontainer from './childrenprops/Boxcontainer';
 
 function App() {
+  const myState = useSelector((state)=>state.changeTheNumber);
+  const myCart = useSelector((state)=>state.changeTheCart);
+  const dispatch = useDispatch();
   // const initialState = 0;
   // const reducer=(state,action)=>{
   // if(action.type==='add'){
@@ -37,8 +43,8 @@ function App() {
   const [open,setOpenModal] = useState(false);
   return (
     <div className="App">
-      <button onClick={()=>setOpenModal(!open)}>{open ? "Hide" : "Show"}</button>
-      {open && <OpenModal/>}
+      {/* <button onClick={()=>setOpenModal(!open)}>{open ? "Hide" : "Show"}</button>
+      {open && <OpenModal/>} */}
 {/*       
            <h2>{state}</h2>
            <button onClick={()=>dispatch({type:'add'})}>Add</button>
@@ -51,9 +57,30 @@ function App() {
       {/* <User/>
 
     <ErrorBound/> */}
+   <div>
+   <a title="decrement" onClick={()=>dispatch(decNumber(10))}> - </a>
+       <input type="text" value={myState} />
+       <a title="increment" onClick={()=>dispatch(incNumber(5))}> + </a>
+</div>
+<div>
+  <h1>Cart Checkout: {myCart}</h1>
+  <button onClick={()=>dispatch(addCart())}>Add to cart</button>
+</div>
+    {/* <Boxcontainer>
+      <div>
+              
+      </div>
+      </Boxcontainer>
+      <Boxcontainer value={"this is props"}>
+      <div>
+        <p>This is background children props</p>
+        <br></br>
+        
+      </div>
+      </Boxcontainer>
           <Modals/>
       <Portal/>
-      <PortalDemo/>
+      <PortalDemo/> */}
       {/* <Other/> */}
       {/* <Parent/> */}
        {/* <ComA/> */}
